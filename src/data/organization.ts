@@ -2,7 +2,7 @@ import type { OrganizationProfile, CoreValue, Stat, FocusArea } from "@/types/co
 
 /**
  * All copy in this file is derived directly from the Kikwetu Foundation
- * Company Profile (2024). Nothing here is fabricated — figures, dates, and
+ * Company Profile (2024). Nothing here is fabricated, figures, dates, and
  * quotes are reproduced or paraphrased from that source document only.
  */
 
@@ -24,7 +24,7 @@ export const organization: OrganizationProfile = {
   ],
   approach: [
     "We invest in a distinct way of doing things, guided by our core purpose: to transform. We create opportunities for young Africans to be part of our growth story by equipping them with the tools they need for economic growth, life skills, and education.",
-    "We pursue that transformation through several channels, but our most impactful stories consistently trace back to our base station — the grassroots, community-level work that puts us in direct contact with the youth we serve. To date, Kikwetu Foundation has reached over 10,000 beneficiaries, directly and indirectly.",
+    "We pursue that transformation through several channels, but our most impactful stories consistently trace back to our base station, the grassroots, community-level work that puts us in direct contact with the youth we serve. To date, Kikwetu Foundation has reached over 10,000 beneficiaries, directly and indirectly.",
   ],
   values: [
     { name: "Commitment to Service", description: "We show up for the communities we serve, consistently and reliably." },

@@ -1,8 +1,15 @@
+import dynamic from "next/dynamic";
 import { PageHero } from "@/components/sections/page-hero";
-import { ContactForm } from "@/components/ui/contact-form";
 import { getContactInfo } from "@/lib/cms/partners";
 import { buildMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site-config";
+
+const ContactForm = dynamic(
+  () => import("@/components/ui/contact-form").then((mod) => mod.ContactForm),
+  {
+    loading: () => <div style={{ minHeight: 420 }} aria-hidden="true" />,
+  }
+);
 
 export const metadata = buildMetadata({
   title: "Contact Us",
@@ -44,7 +51,7 @@ export default async function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title="Let's start a conversation"
-        description="Reach out about partnerships, sponsorship, volunteering, or general inquiries — our team responds to every message."
+        description="Reach out about partnerships, sponsorship, volunteering, or general inquiries, our team responds to every message."
         image={{
           src: "/images/kikwetu-foundation-community-outreach-students.jpg",
           alt: "Kikwetu Foundation community outreach event",

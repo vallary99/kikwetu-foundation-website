@@ -56,7 +56,7 @@ export function ContactForm() {
       <div className="alert alert-success d-flex align-items-start gap-2" role="status">
         <i className="bi bi-check-circle-fill mt-1" aria-hidden="true" />
         <div>
-          <strong>Message sent.</strong> Thank you for reaching out — our team will respond
+          <strong>Message sent.</strong> Thank you for reaching out, our team will respond
           shortly.
         </div>
       </div>

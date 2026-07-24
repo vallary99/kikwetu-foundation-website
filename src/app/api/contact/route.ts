@@ -5,7 +5,7 @@ import { NextRequest, NextResponse } from "next/server";
  *
  * Handles contact form submissions (partnership, volunteering, sponsorship,
  * media, and general inquiries). Currently validates input and returns
- * success without dispatching email — no transactional email provider or
+ * success without dispatching email, no transactional email provider or
  * CRM is wired up yet.
  *
  * To go live, add an email send (e.g. Resend, SendGrid, Postmark) or a CRM

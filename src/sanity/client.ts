@@ -4,7 +4,7 @@
  * This file is intentionally inert until the project is connected to a real
  * Sanity dataset. See README.md → "CMS Documentation" for the full setup
  * guide. Once configured, `/lib/cms/*.ts` files should import `client` from
- * here and replace their local-data reads with `client.fetch(query)` calls —
+ * here and replace their local-data reads with `client.fetch(query)` calls,
  * no other part of the app needs to change.
  *
  * Required environment variables (see .env.example):

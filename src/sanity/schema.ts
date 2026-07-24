@@ -4,7 +4,7 @@
  * These mirror the TypeScript interfaces in `/types/content.ts` field for
  * field, so migrating from mock data to Sanity is a direct mapping. They are
  * plain objects (not wired into a Sanity Studio config) until the `sanity`
- * package is installed — see README.md → "CMS Documentation" for the
+ * package is installed, see README.md → "CMS Documentation" for the
  * `sanity init` steps that will consume these.
  */
 

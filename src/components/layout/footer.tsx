@@ -1,8 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { footerLinks, legalLinks } from "@/data/navigation";
 import { contactInfo } from "@/data/contact";
-import { NewsletterForm } from "@/components/ui/newsletter-form";
+
+const NewsletterForm = dynamic(
+  () => import("@/components/ui/newsletter-form").then((mod) => mod.NewsletterForm),
+  {
+    loading: () => <div style={{ height: 44 }} aria-hidden="true" />,
+  }
+);
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -12,7 +19,7 @@ export function Footer() {
       <div className="container section-tight">
         <div className="row gy-4">
           <div className="col-lg-4">
-            <Link href="/" className="d-inline-block mb-3 kf-footer-logo-chip">
+            <Link href="/" prefetch={false} className="d-inline-block mb-3 kf-footer-logo-chip">
               <Image
                 src="/logo/kikwetu-foundation-logo.png"
                 alt="Kikwetu Foundation logo"
@@ -32,7 +39,7 @@ export function Footer() {
             <ul className="list-unstyled d-flex flex-column gap-2 small mb-0">
               {footerLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href}>{link.label}</Link>
+                  <Link href={link.href} prefetch={false}>{link.label}</Link>
                 </li>
               ))}
             </ul>
@@ -65,7 +72,7 @@ export function Footer() {
           <ul className="list-unstyled d-flex gap-4 mb-0">
             {legalLinks.map((link) => (
               <li key={link.href}>
-                <Link href={link.href}>{link.label}</Link>
+                <Link href={link.href} prefetch={false}>{link.label}</Link>
               </li>
             ))}
           </ul>

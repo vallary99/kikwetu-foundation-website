@@ -67,7 +67,7 @@ export default async function ImpactPage() {
               </p>
               <p className="text-secondary mb-0">
                 Greater access to business opportunities through skills and entrepreneurship
-                training increases family income — which can mean more jobs and a boost to
+                training increases family income, which can mean more jobs and a boost to
                 the local economy.
               </p>
             </div>

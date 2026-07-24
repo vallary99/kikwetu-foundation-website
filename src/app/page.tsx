@@ -38,7 +38,7 @@ export default async function HomePage() {
         <div className="container">
           <div className="row align-items-center g-5">
             <div className="col-lg-6">
-              <p className="mb-3 eyebrow">Who We Are</p>
+              <p className="mb-3">Who We Are</p>
               <h2 className="h1 mb-4">
                 A grassroots movement that grew into a pan-African foundation
               </h2>

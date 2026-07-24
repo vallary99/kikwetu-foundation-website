@@ -9,15 +9,14 @@ export function HomeHero() {
           src="/images/kikwetu-foundation-youth-community-gathering.jpg"
           alt="Kikwetu Foundation youth and volunteers gathered together outdoors in Nairobi"
           fill
-          priority
-          sizes="100vw"
+          sizes="(max-width: 767px) 0px, 100vw"
           className="kf-object-fit"
         />
       </div>
       <div className="container kf-hero-content" style={{ paddingBlock: "6rem" }}>
         <div className="row">
           <div className="col-lg-9">
-            <p className="hero-eyebrow mb-3">Youth Empowerment NGO · Kenya</p>
+            <p className="eyebrow eyebrow-light mb-3">Youth Empowerment NGO · Kenya</p>
             <h1 className="display-4 mb-4 home-hero-bg fw-bold">
               Transforming African Youth Through Opportunity, Skills <br /> & Education
             </h1>

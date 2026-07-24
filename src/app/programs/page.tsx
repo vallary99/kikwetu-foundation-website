@@ -8,7 +8,7 @@ import { buildMetadata } from "@/lib/metadata";
 export const metadata = buildMetadata({
   title: "Our Programs",
   description:
-    "Explore Kikwetu Foundation's youth-empowerment programs — from the K-Hub digital-skills initiative to mentorship, entrepreneurship, and education programs across Kenya.",
+    "Explore Kikwetu Foundation's youth-empowerment programs, from the K-Hub digital-skills initiative to mentorship, entrepreneurship, and education programs across Kenya.",
   path: "/programs",
 });
 
@@ -20,7 +20,7 @@ export default async function ProgramsPage() {
       <PageHero
         eyebrow="Our Programs"
         title="Programs built around real community needs"
-        description="Every Kikwetu Foundation program has a defined beneficiary group, clear objectives, and an expected outcome — from digital skills to mentorship and education access."
+        description="Every Kikwetu Foundation program has a defined beneficiary group, clear objectives, and an expected outcome, from digital skills to mentorship and education access."
         image={{
           src: "/images/kikwetu-foundation-youth-graduation-ceremony.jpg",
           alt: "Kikwetu Foundation program graduates at a ceremony",
@@ -52,7 +52,7 @@ export default async function ProgramsPage() {
           <SectionHeading
             eyebrow="Program History"
             title="Programs that shaped our approach"
-            description="These initiatives built the foundation — and the track record — that current partners rely on."
+            description="These initiatives built the foundation, and the track record, that current partners rely on."
           />
           <div className="row g-4">
             {pastPrograms.map((program) => (

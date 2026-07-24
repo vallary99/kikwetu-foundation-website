@@ -67,7 +67,7 @@ export default async function PartnersPage() {
           <SectionHeading
             eyebrow="Partnership Opportunities"
             title="Ways to work with Kikwetu Foundation"
-            description="Every partnership starts with understanding your goals — here are the models we most commonly build together."
+            description="Every partnership starts with understanding your goals, here are the models we most commonly build together."
           />
           <div className="row g-4">
             {opportunities.map((opportunity) => (

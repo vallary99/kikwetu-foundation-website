@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
  * POST /api/newsletter
  *
  * Newsletter signup endpoint. Validates the submitted email and currently
- * only logs it server-side — no email-marketing platform is connected yet
+ * only logs it server-side, no email-marketing platform is connected yet
  * per project requirements ("prepare reusable architecture for future
  * integration").
  *

@@ -20,7 +20,7 @@ export default async function AboutPage() {
       <PageHero
         eyebrow="About Kikwetu Foundation"
         title="A home for transformation, built by young people, for young people"
-        description="From a single cyber café in Dandora to a pan-African network of 150+ members — this is our story."
+        description="From a single cyber café in Dandora to a pan-African network of 150+ members, this is our story."
         image={{
           src: "/images/kikwetu-foundation-community-outreach-students.jpg",
           alt: "Students taking part in a Kikwetu Foundation community outreach event",

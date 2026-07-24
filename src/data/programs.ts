@@ -7,11 +7,11 @@ export const programs: Program[] = [
     status: "current",
     icon: "bi-cpu",
     summary:
-      "Our flagship, sustainable initiative equipping African youth with ICT skills and fostering innovation — training 20,000 young people from the Eastlands area in software development and tech skills by 2035.",
+      "Our flagship, sustainable initiative equipping African youth with ICT skills and fostering innovation, training 20,000 young people from the Eastlands area in software development and tech skills by 2035.",
     description: [
       "The K-Hub Project is Kikwetu Foundation's sustainable and transformative initiative aimed at equipping African youth with essential ICT skills and fostering innovation. It builds on the Foundation's history of empowering Nairobi's underprivileged youth, dating back to our roots in a Dandora cyber café.",
       "The project aims to train 20,000 young people from the Eastlands area in software development and technology skills by 2035, bridging the digital divide and creating equal opportunity for youth regardless of socioeconomic background.",
-      "K-Hub is structured around three courses: Technology (digital literacy — operating systems, internet use, digital tools, and productivity software), Software Developing (foundational programming, control structures, web development, and version control with Git), and Programming (object-oriented programming, design patterns, software architecture, and project management, applied through hands-on labs and capstone projects).",
+      "K-Hub is structured around three courses: Technology (digital literacy, operating systems, internet use, digital tools, and productivity software), Software Developing (foundational programming, control structures, web development, and version control with Git), and Programming (object-oriented programming, design patterns, software architecture, and project management, applied through hands-on labs and capstone projects).",
     ],
     objectives: [
       "Enhance digital literacy and skills",
@@ -37,7 +37,7 @@ export const programs: Program[] = [
       "A mentorship initiative for high school, university, and college students focused on skills, talent, and celebrating African culture.",
     description: [
       "The Tambua Mentorship Program targets students in high school, universities and colleges, and other tertiary levels, focusing on skills improvement, life after school, talent nurturing, the arts, and celebrating African culture.",
-      "The program also addresses academics, sexual education, peer pressure, drug and substance abuse, mental illness, and general life skills — giving students well-rounded support beyond the classroom.",
+      "The program also addresses academics, sexual education, peer pressure, drug and substance abuse, mental illness, and general life skills, giving students well-rounded support beyond the classroom.",
       "Through the Tambua high-school track, secondary students access leadership training and support services. Scholars are selected based on disadvantage and demonstrated leadership potential in their community.",
     ],
     objectives: [
@@ -47,7 +47,7 @@ export const programs: Program[] = [
     ],
     beneficiaries: "Secondary school, university, and college students selected based on disadvantage and community leadership potential.",
     expectedImpact:
-      "Better-equipped students with stronger leadership skills, confidence, and life-skills support — exemplified by beneficiaries such as Victor Gikara, who uses his training to mobilize his community and build students' confidence in school.",
+      "Better-equipped students with stronger leadership skills, confidence, and life-skills support, exemplified by beneficiaries such as Victor Gikara, who uses his training to mobilize his community and build students' confidence in school.",
     image: {
       src: "/images/kikwetu-foundation-community-outreach-students.jpg",
       alt: "Students in green school uniforms taking part in a Kikwetu Foundation community outreach event",

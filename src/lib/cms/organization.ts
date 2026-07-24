@@ -7,7 +7,7 @@ import type { OrganizationProfile, Stat, FocusArea } from "@/types/content";
  * Every function is `async` even though the current implementation reads
  * from local mock data. That keeps the call signature identical to what a
  * future Sanity-backed implementation will need (`await client.fetch(...)`),
- * so swapping the source only requires editing this file — no UI or page
+ * so swapping the source only requires editing this file, no UI or page
  * component changes required. See README.md → "Replacing mock data with
  * Sanity" for the migration steps.
  */

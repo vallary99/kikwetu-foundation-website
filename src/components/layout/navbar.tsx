@@ -24,7 +24,7 @@ export function Navbar() {
       aria-label="Primary navigation"
     >
       <div className="container">
-        <Link href="/" className="navbar-brand d-flex align-items-center gap-2 py-1">
+        <Link href="/" prefetch={false} className="navbar-brand d-flex align-items-center gap-2 py-1">
           <Image
             src="/logo/kikwetu-foundation-logo.png"
             alt="Kikwetu Foundation logo"
@@ -54,6 +54,7 @@ export function Navbar() {
                 <li className="nav-item" key={link.href}>
                   <Link
                     href={link.href}
+                    prefetch={false}
                     className={`nav-link kf-nav-link ${isActive ? "active" : ""}`}
                     aria-current={isActive ? "page" : undefined}
                   >
@@ -63,7 +64,7 @@ export function Navbar() {
               );
             })}
             <li className="nav-item ms-lg-2 mt-2 mt-lg-0">
-              <Link href="/partners" className="btn btn-brand-primary btn-sm w-100">
+              <Link href="/partners" prefetch={false} className="btn btn-brand-primary btn-sm w-100">
                 Partner With Us
               </Link>
             </li>

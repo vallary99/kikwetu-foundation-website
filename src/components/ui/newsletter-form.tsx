@@ -12,7 +12,7 @@ type Status = "idle" | "loading" | "success" | "error";
  * Newsletter signup form.
  *
  * Submits to `/api/newsletter`, which is currently a stub (see that route's
- * comments). No email-marketing platform is wired up yet — the API route is
+ * comments). No email-marketing platform is wired up yet, the API route is
  * intentionally the only place that will need to change when Brevo,
  * Mailchimp, or ConvertKit is connected. See README.md → "Newsletter
  * Documentation" for the integration guide.
@@ -47,7 +47,7 @@ export function NewsletterForm({ variant = "section" }: NewsletterFormProps) {
     return (
       <p className={`small mb-0 ${isFooter ? "text-white" : "text-olive"}`} role="status">
         <i className="bi bi-check-circle-fill me-2" aria-hidden="true" />
-        Thanks — you&apos;re subscribed.
+        Thanks, you&apos;re subscribed.
       </p>
     );
   }

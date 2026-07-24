@@ -2,7 +2,7 @@
 @import "bootstrap-icons/font/bootstrap-icons.css";
 
 /* ==========================================================================
-   Kikwetu Foundation — Brand tokens
+   Kikwetu Foundation, Brand tokens
    Source: Kikwetu Foundation Brand Identity Guidelines v1.0
    Olive Green is the primary voice of the brand (target ~60% presence);
    White/Black carry structure; Blue and Red are sparing accents.
@@ -232,14 +232,27 @@ select:focus-visible,
 .kf-hero {
   position: relative;
   color: var(--kf-white);
-  background-color: var(--kf-ink);
+  background-color: var(--kf-black);
   overflow: hidden;
 }
 
+@media (min-width: 768px) {
+  .kf-hero {
+    background-color: var(--kf-ink);
+  }
+}
+
 .kf-hero-media {
+  display: none;
   position: absolute;
   inset: 0;
   z-index: 0;
+}
+
+@media (min-width: 768px) {
+  .kf-hero-media {
+    display: block;
+  }
 }
 
 .kf-hero-media::after {
@@ -372,10 +385,6 @@ select:focus-visible,
 
 .eyebrow {
   color: var(--kf-olive);
-}
-
-.hero-eyebrow {
-  color: var(--kf-blue);
 }
 
 .hero-title {
