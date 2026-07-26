@@ -73,6 +73,54 @@ p {
   line-height: 1.6;
 }
 
+/* ==========================================================================
+   Mobile typography (max-width: 767.98px only)
+   Bootstrap's display and heading classes already scale fluidly above this
+   breakpoint via calc(); these overrides only apply below it, tightening
+   sizes for small screens without touching tablet/desktop rendering at all.
+   ========================================================================== */
+@media (max-width: 767.98px) {
+  h1, .h1, .display-1, .display-2, .display-3, .display-4 {
+    font-size: clamp(1.9rem, 8vw, 2.5rem);
+    line-height: 1.18;
+  }
+
+  h2, .h2, .display-5 {
+    font-size: clamp(1.5rem, 6vw, 1.85rem);
+    line-height: 1.22;
+  }
+
+  h3, .h3, .display-6 {
+    font-size: clamp(1.25rem, 5vw, 1.5rem);
+    line-height: 1.28;
+  }
+
+  h4, .h4 {
+    font-size: clamp(1.1rem, 4vw, 1.25rem);
+    line-height: 1.32;
+  }
+
+  h5, .h5 {
+    font-size: clamp(1rem, 3.5vw, 1.1rem);
+    line-height: 1.35;
+  }
+
+  .lead {
+    font-size: clamp(1rem, 3.5vw, 1.1rem);
+    line-height: 1.55;
+  }
+
+  body {
+    font-size: 0.95rem;
+  }
+}
+
+/* Prevent long unbroken words/URLs from forcing horizontal scroll on
+   narrow screens (e.g. long email addresses in the footer/contact page). */
+h1, h2, h3, p, .lead {
+  overflow-wrap: break-word;
+}
+
 .skip-link {
   position: absolute;
   top: -3rem;
@@ -154,11 +202,11 @@ select:focus-visible,
 }
 
 .section {
-  padding-block: clamp(3rem, 6vw, 6rem);
+  padding-block: clamp(2.25rem, 6vw, 6rem);
 }
 
 .section-tight {
-  padding-block: clamp(2.5rem, 4vw, 4rem);
+  padding-block: clamp(1.75rem, 4vw, 4rem);
 }
 
 .bg-olive {
@@ -205,6 +253,39 @@ select:focus-visible,
   height: auto;
   width: 150px;
   object-fit: cover;
+}
+
+@media (max-width: 991.98px) {
+  .logo {
+    width: 116px;
+  }
+
+  .kf-navbar .navbar-toggler {
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 0.4rem;
+  }
+
+  .kf-navbar .navbar-nav {
+    padding-block: 0.25rem;
+  }
+
+  .kf-nav-link {
+    padding: 0.75rem 0.9rem !important;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  .kf-navbar .navbar-nav .btn-sm {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    min-height: 44px;
+  }
 }
 
 
@@ -272,6 +353,18 @@ select:focus-visible,
   z-index: 1;
 }
 
+.kf-hero-pad {
+  padding-block: clamp(2.5rem, 10vw, 6rem);
+}
+
+.kf-hero-pad-page {
+  padding-block: clamp(2.25rem, 9vw, 5.5rem);
+}
+
+.kf-hero-pad-compact {
+  padding-block: clamp(2rem, 7vw, 3.5rem);
+}
+
 .kf-card {
   background-color: var(--kf-white);
   border: 1px solid var(--kf-border);
@@ -327,23 +420,59 @@ select:focus-visible,
   text-decoration: underline;
 }
 
+.kf-footer-pad {
+  padding-block: clamp(1.75rem, 5vw, 3.5rem);
+}
+
+.kf-footer-rule {
+  margin-block: clamp(1.25rem, 4vw, 2rem);
+}
+
+.kf-footer-link {
+  display: inline-block;
+  padding-block: 0.25rem;
+}
+
 .kf-footer-logo-chip {
   background-color: var(--kf-white);
   border-radius: 0.6rem;
-  padding: 0.85rem 1.25rem;
+  padding: 0.6rem 0.9rem;
   line-height: 0;
 }
 
 .kf-footer-logo {
-  height: 44px;
+  height: 36px;
   width: auto;
   display: block;
 }
 
-@media (min-width: 992px) {
-  .kf-footer-logo {
-    height: 52px;
-  }
+.kf-footer-social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.1rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.kf-footer-social-icon:hover,
+.kf-footer-social-icon:focus-visible {
+  background-color: var(--kf-olive);
+  color: var(--kf-white);
+}
+
+.kf-footer-social-icon-placeholder {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.kf-footer-social-icon-placeholder:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .kf-object-fit {
@@ -395,4 +524,55 @@ select:focus-visible,
 .hero-description {
   font-weight: 400;
   color: #ffffff;
+}
+
+/* ==========================================================================
+   Mobile spacing, cards, forms, and safety nets (max-width: 575.98px)
+   Scoped to phones only; tablet/desktop keep their existing Bootstrap
+   gutter/padding values untouched.
+   ========================================================================== */
+@media (max-width: 575.98px) {
+  .g-4, .gx-4 { --bs-gutter-x: 1rem; }
+  .g-4, .gy-4 { --bs-gutter-y: 1rem; }
+  .g-5, .gx-5 { --bs-gutter-x: 1.25rem; }
+  .g-5, .gy-5 { --bs-gutter-y: 1.25rem; }
+
+  .kf-card.p-4, .kf-card.p-lg-5, .kf-stat-card.p-4 {
+    padding: 1.125rem !important;
+  }
+
+  .kf-card.p-3 {
+    padding: 1rem !important;
+  }
+}
+
+/* Comfortable form controls on touch devices */
+@media (max-width: 767.98px) {
+  .form-control,
+  .form-select {
+    min-height: 3rem;
+    padding-block: 0.65rem;
+    font-size: 1rem;
+  }
+
+  textarea.form-control {
+    min-height: 8rem;
+  }
+
+  .form-label {
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+}
+
+/* Global horizontal-scroll safety net: nothing should ever force the page
+   wider than the viewport on small screens.
+   Note: intentionally NOT setting overflow-x:hidden here, it silently
+   disables position:sticky on descendants (like the navbar). */
+html, body {
+  max-width: 100%;
+}
+
+img, iframe, svg {
+  max-width: 100%;
 }

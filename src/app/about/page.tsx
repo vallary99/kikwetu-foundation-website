@@ -49,6 +49,7 @@ export default async function AboutPage() {
                   alt="Kikwetu Foundation youth and volunteers gathered together in Nairobi"
                   width={1800}
                   height={1346}
+                  sizes="(min-width: 992px) 42vw, 100vw"
                   className="w-100 h-auto"
                 />
               </div>

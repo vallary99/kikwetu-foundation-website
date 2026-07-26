@@ -58,6 +58,7 @@ export default async function HomePage() {
                   alt="Kikwetu Foundation youth beneficiaries celebrating at a graduation ceremony"
                   width={1800}
                   height={1200}
+                  sizes="(min-width: 992px) 50vw, 100vw"
                   className="w-100 h-auto"
                 />
               </div>
@@ -153,7 +154,7 @@ export default async function HomePage() {
               {newsArticles.map((article) => (
                 <div className="col-md-4" key={article.slug}>
                   <article className="kf-card overflow-hidden">
-                    <Image src={article.image.src} alt={article.image.alt} width={article.image.width} height={article.image.height} className="w-100 h-auto" />
+                    <Image src={article.image.src} alt={article.image.alt} width={article.image.width} height={article.image.height} sizes="(min-width: 768px) 33vw, 100vw" className="w-100 h-auto" />
                     <div className="p-4">
                       <h3 className="h5 mb-2">{article.title}</h3>
                       <p className="small text-secondary mb-0">{article.excerpt}</p>

@@ -122,7 +122,7 @@ export default async function ImpactPage() {
               </div>
               <div className="col-lg-6">
                 <div className="kf-rounded-lg">
-                  <Image src={kHub.image.src} alt={kHub.image.alt} width={kHub.image.width} height={kHub.image.height} className="w-100 h-auto" />
+                  <Image src={kHub.image.src} alt={kHub.image.alt} width={kHub.image.width} height={kHub.image.height} sizes="(min-width: 992px) 50vw, 100vw" className="w-100 h-auto" />
                 </div>
               </div>
             </div>

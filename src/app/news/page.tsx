@@ -7,7 +7,7 @@ import Image from "next/image";
 export const metadata = buildMetadata({
   title: "News & Updates",
   description:
-    "Read the latest news and updates from Kikwetu Foundation&apos;s youth-empowerment programs across Kenya.",
+    "Read the latest news and updates from Kikwetu Foundation's youth-empowerment programs across Kenya.",
   path: "/news",
 });
 
@@ -19,7 +19,7 @@ export default async function NewsPage() {
       <PageHero
         eyebrow="News"
         title="Updates from the field"
-        description="Announcements, program milestones, and stories from Kikwetu Foundation&apos;s work across Kenya."
+        description="Announcements, program milestones, and stories from Kikwetu Foundation's work across Kenya."
         image={{
           src: "/images/kikwetu-foundation-youth-community-gathering.jpg",
           alt: "Kikwetu Foundation team and community gathering",
@@ -37,7 +37,7 @@ export default async function NewsPage() {
                 <div className="col-md-4" key={article.slug}>
                   <a href={`/news/${article.slug}`} target="_blank" rel="noopener noreferrer" className="text-decoration-none">
                     <article className="kf-card overflow-hidden h-100">
-                      <Image src={article.image.src} alt={article.image.alt} width={article.image.width} height={article.image.height} className="w-100 h-auto" />
+                      <Image src={article.image.src} alt={article.image.alt} width={article.image.width} height={article.image.height} sizes="(min-width: 768px) 33vw, 100vw" className="w-100 h-auto" />
                       <div className="p-4">
                         <p className="small text-secondary mb-2">{article.date}</p>
                         <h2 className="h5 mb-2" style={{ color: "var(--kf-ink)" }}>

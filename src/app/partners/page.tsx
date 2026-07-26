@@ -101,7 +101,7 @@ export default async function PartnersPage() {
         </div>
       </section>
 
-      <CTASection title="Let&apos;s design a partnership that fits your goals" description="Tell us about your organization&apos;s priorities, and we&apos;ll come back with a proposal grounded in our real programs and reach." />
+      <CTASection title="Let's design a partnership that fits your goals" description="Tell us about your organization's priorities, and we'll come back with a proposal grounded in our real programs and reach." />
     </>
   );
 }

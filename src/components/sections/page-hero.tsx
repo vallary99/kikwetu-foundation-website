@@ -11,7 +11,7 @@ interface PageHeroProps {
 
 export function PageHero({ eyebrow, title, description, compact, children }: PageHeroProps) {
   return (
-    <section className={`kf-hero ${compact ? "py-5" : "py-6"}`} style={{ paddingBlock: compact ? "3.5rem" : "5.5rem" }}>
+    <section className={`kf-hero ${compact ? "kf-hero-pad-compact" : "kf-hero-pad-page"}`}>
       <div className="container kf-hero-content">
         <div className="row">
           <div className="col-lg-8">

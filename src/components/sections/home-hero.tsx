@@ -13,12 +13,12 @@ export function HomeHero() {
           className="kf-object-fit"
         />
       </div>
-      <div className="container kf-hero-content" style={{ paddingBlock: "6rem" }}>
+      <div className="container kf-hero-content kf-hero-pad">
         <div className="row">
           <div className="col-lg-9">
             <p className="eyebrow eyebrow-light mb-3">Youth Empowerment NGO · Kenya</p>
-            <h1 className="display-4 mb-4 home-hero-bg fw-bold">
-              Transforming African Youth Through Opportunity, Skills <br /> & Education
+            <h1 className="display-4 mb-3 mb-md-4 home-hero-bg fw-bold">
+              Transforming African Youth Through Opportunity, Skills & Education
             </h1>
             <p className="lead mb-4" style={{ color: "rgba(255,255,255,0.9)", maxWidth: "42rem" }}>
               Since 2012, Kikwetu Foundation has equipped young people across Kenya with
@@ -27,10 +27,10 @@ export function HomeHero() {
               NGOs, and development organizations to scale what works.
             </p>
             <div className="d-flex flex-column flex-sm-row gap-3">
-              <Link href="/partners" className="btn btn-brand-primary btn-lg">
+              <Link href="/partners" className="btn btn-brand-primary btn-lg align-self-stretch align-self-sm-start">
                 Partner With Us
               </Link>
-              <Link href="/programs" className="btn btn-brand-outline btn-lg">
+              <Link href="/programs" className="btn btn-brand-outline btn-lg align-self-stretch align-self-sm-start">
                 Explore Programs
               </Link>
             </div>

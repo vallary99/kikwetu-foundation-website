@@ -142,9 +142,11 @@ export function ContactForm() {
         ) : null}
       </div>
 
-      <button type="submit" className="btn btn-brand-primary mt-4" disabled={status === "loading"}>
-        {status === "loading" ? "Sending…" : "Send Message"}
-      </button>
+      <div className="d-grid d-sm-block mt-4">
+        <button type="submit" className="btn btn-brand-primary" disabled={status === "loading"}>
+          {status === "loading" ? "Sending…" : "Send Message"}
+        </button>
+      </div>
     </form>
   );
 }

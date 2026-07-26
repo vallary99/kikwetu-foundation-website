@@ -77,6 +77,7 @@ export default async function ProgramDetailPage({ params }: ProgramPageProps) {
                   alt={program.image.alt}
                   width={program.image.width}
                   height={program.image.height}
+                  sizes="(min-width: 992px) 42vw, 100vw"
                   className="w-100 h-auto"
                 />
               </div>
