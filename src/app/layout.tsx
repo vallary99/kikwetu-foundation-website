@@ -41,13 +41,17 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
   },
+  // Only emit verification meta tags once real codes are supplied via env
+  // vars. Previously this always rendered literal placeholder strings
+  // (e.g. "GOOGLE_SEARCH_CONSOLE_VERIFICATION_CODE") into the live HTML,
+  // which is confusing and unprofessional on a public site.
   verification: {
-    // Replace with real verification codes once Search Console / Bing
-    // Webmaster Tools properties are created for the production domain.
-    google: "GOOGLE_SEARCH_CONSOLE_VERIFICATION_CODE",
-    other: {
-      "msvalidate.01": "BING_WEBMASTER_VERIFICATION_CODE",
-    },
+    ...(process.env.GOOGLE_SITE_VERIFICATION
+      ? { google: process.env.GOOGLE_SITE_VERIFICATION }
+      : {}),
+    ...(process.env.BING_SITE_VERIFICATION
+      ? { other: { "msvalidate.01": process.env.BING_SITE_VERIFICATION } }
+      : {}),
   },
 };
 

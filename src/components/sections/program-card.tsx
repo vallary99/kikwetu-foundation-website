@@ -15,7 +15,7 @@ export function ProgramCard({ program }: { program: Program }) {
       <h3 className="h4 mb-2">{program.name}</h3>
       <p className="text-secondary mb-4 flex-grow-1">{program.summary}</p>
       <Link href={`/programs/${program.slug}`} className="btn btn-brand-outline-dark align-self-start">
-        Learn More
+        Learn More<span className="visually-hidden"> about {program.name}</span>
         <i className="bi bi-arrow-right ms-2" aria-hidden="true" />
       </Link>
     </article>
