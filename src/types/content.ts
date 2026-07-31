@@ -51,20 +51,20 @@ export interface FocusArea {
   description: string;
 }
 
+export interface TeamMember {
+  slug: string;
+  name: string;
+  /** Omitted when a confirmed role isn't available for this person. */
+  role?: string;
+  bio: string;
+  image: SiteImage;
+}
+
 export interface PartnershipOpportunity {
   title: string;
   audience: string;
   description: string;
   icon: string;
-}
-
-export interface NewsArticle {
-  slug: string;
-  title: string;
-  excerpt: string;
-  date: string;
-  image: SiteImage;
-  isPlaceholder?: boolean;
 }
 
 export interface ContactInfo {

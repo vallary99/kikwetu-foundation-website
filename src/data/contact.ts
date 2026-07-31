@@ -10,8 +10,8 @@ export const contactInfo: ContactInfo = {
   email: "info@kikwetufoundation.org",
   website: "www.kikwetufoundation.org",
   address: {
-    line1: "Agip House, Haile Selassie Avenue, Entrance A, 4th Floor, RM 415",
-    line2: "P.O. Box 729-00516",
+    line1: "East University, Buruburu",
+    line2: "Nairobi-Mumias Road",
     city: "Nairobi, Kenya",
   },
 };

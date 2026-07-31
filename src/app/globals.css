@@ -576,3 +576,103 @@ html, body {
 img, iframe, svg {
   max-width: 100%;
 }
+
+/* ==========================================================================
+   Team page
+   ========================================================================== */
+.kf-team-photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background-color: var(--kf-olive-tint);
+}
+
+.kf-team-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+/* ==========================================================================
+   WhatsApp floating action button
+   ========================================================================== */
+.kf-whatsapp-fab {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 1030;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #25d366;
+  color: var(--kf-white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.kf-whatsapp-fab:hover,
+.kf-whatsapp-fab:focus-visible {
+  color: var(--kf-white);
+  background-color: #1ebe5a;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.3);
+}
+
+.kf-whatsapp-fab:active {
+  transform: translateY(-1px) scale(1.02);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kf-whatsapp-fab:hover,
+  .kf-whatsapp-fab:focus-visible {
+    transform: none;
+  }
+}
+
+.kf-whatsapp-tooltip {
+  position: absolute;
+  right: calc(100% + 0.75rem);
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--kf-ink);
+  color: var(--kf-white);
+  padding: 0.4rem 0.85rem;
+  border-radius: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.kf-whatsapp-fab:hover .kf-whatsapp-tooltip,
+.kf-whatsapp-fab:focus-visible .kf-whatsapp-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (max-width: 575.98px) {
+  .kf-whatsapp-fab {
+    right: 1rem;
+    bottom: 1rem;
+    width: 52px;
+    height: 52px;
+    font-size: 1.6rem;
+  }
+
+  /* Tooltip is hidden on touch devices (no hover state to reveal it);
+     the accessible name via aria-label is still announced by screen
+     readers regardless. */
+  .kf-whatsapp-tooltip {
+    display: none;
+  }
+}

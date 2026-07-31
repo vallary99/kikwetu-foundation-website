@@ -112,7 +112,7 @@ export default async function ContactPage() {
               <div className="kf-rounded-lg kf-shadow-soft" style={{ height: "16rem" }}>
                 <iframe
                   title="Kikwetu Foundation office location on Google Maps"
-                  src="https://www.google.com/maps?q=Agip+House+Haile+Selassie+Avenue+Nairobi&output=embed"
+                  src="https://www.google.com/maps?q=East+University+Buruburu+Nairobi-Mumias+Road+Nairobi&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

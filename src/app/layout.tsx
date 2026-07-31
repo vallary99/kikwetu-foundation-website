@@ -9,6 +9,7 @@ import "@fontsource/merriweather/900.css";
 import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { WhatsAppButton } from "@/components/ui/whatsapp-button";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -66,7 +67,7 @@ const organizationJsonLd = {
   foundingDate: "2012",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Agip House, Haile Selassie Avenue, Entrance A, 4th Floor, RM 415",
+    streetAddress: "East University, Buruburu, Nairobi-Mumias Road",
     addressLocality: "Nairobi",
     addressCountry: "KE",
   },
@@ -129,6 +130,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navbar />
         <main id="main-content">{children}</main>
         <Footer />
+        <WhatsAppButton />
       </body>
     </html>
   );

@@ -7,7 +7,7 @@ import { ProgramCard } from "@/components/sections/program-card";
 import { CTASection } from "@/components/sections/cta-section";
 import { getOrganizationProfile, getImpactStats } from "@/lib/cms/organization";
 import { getAllPrograms } from "@/lib/cms/programs";
-import { getNewsArticles, getNewsPlaceholderCount } from "@/lib/cms/news";
+import { getTeamMembers } from "@/lib/cms/team";
 import { partnershipOpportunities } from "@/data/partners";
 import { buildMetadata } from "@/lib/metadata";
 
@@ -19,15 +19,15 @@ export const metadata = buildMetadata({
 });
 
 export default async function HomePage() {
-  const [organization, stats, programs, newsArticles, placeholderCount] = await Promise.all([
+  const [organization, stats, programs, teamMembers] = await Promise.all([
     getOrganizationProfile(),
     getImpactStats(),
     getAllPrograms(),
-    getNewsArticles(),
-    getNewsPlaceholderCount(),
+    getTeamMembers(),
   ]);
 
   const featuredPrograms = programs.slice(0, 3);
+  const featuredTeam = teamMembers.slice(0, 4);
 
   return (
     <>
@@ -145,39 +145,41 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Latest News */}
+      {/* Meet Our Team */}
       <section className="section">
         <div className="container">
-          <SectionHeading eyebrow="Latest News" title="Stories from the field" />
-          {newsArticles.length > 0 ? (
-            <div className="row g-4">
-              {newsArticles.map((article) => (
-                <div className="col-md-4" key={article.slug}>
-                  <article className="kf-card overflow-hidden">
-                    <Image src={article.image.src} alt={article.image.alt} width={article.image.width} height={article.image.height} sizes="(min-width: 768px) 33vw, 100vw" className="w-100 h-auto" />
-                    <div className="p-4">
-                      <h3 className="h5 mb-2">{article.title}</h3>
-                      <p className="small text-secondary mb-0">{article.excerpt}</p>
-                    </div>
-                  </article>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="row g-4">
-              {Array.from({ length: placeholderCount }).map((_, index) => (
-                <div className="col-md-4" key={index}>
-                  <div className="kf-card p-4 text-center d-flex flex-column align-items-center justify-content-center" style={{ minHeight: "14rem" }}>
-                    <i className="bi bi-newspaper fs-1 text-olive mb-3" aria-hidden="true" />
-                    <p className="fw-semibold mb-1">Updates from our programs</p>
-                    <p className="small text-secondary mb-0">
-                      We publish regular news on milestones, partnerships, and community impact.
-                    </p>
+          <SectionHeading
+            eyebrow="Our Team"
+            title="The people behind the work"
+            description="A small, hands-on team anchoring a pan-African network of 150+ members across Africa and Europe."
+          />
+          <div className="row g-4">
+            {featuredTeam.map((member) => (
+              <div className="col-sm-6 col-lg-3" key={member.slug}>
+                <div className="kf-card h-100 overflow-hidden text-center">
+                  <div className="kf-team-photo">
+                    <Image
+                      src={member.image.src}
+                      alt={member.image.alt}
+                      width={member.image.width}
+                      height={member.image.height}
+                      sizes="(min-width: 992px) 25vw, (min-width: 576px) 50vw, 100vw"
+                      className="kf-team-photo-img"
+                    />
+                  </div>
+                  <div className="p-3">
+                    <h3 className="h6 mb-1">{member.name}</h3>
+                    {member.role ? <p className="small text-olive mb-0">{member.role}</p> : null}
                   </div>
                 </div>
-              ))}
-            </div>
-          )}
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-5">
+            <Link href="/team" className="btn btn-brand-outline-dark">
+              Meet the Full Team
+            </Link>
+          </div>
         </div>
       </section>
 

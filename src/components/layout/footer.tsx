@@ -57,7 +57,7 @@ export function Footer() {
                 </a>
               </li>
               <li>{contactInfo.address.line1}</li>
-              <li>{contactInfo.address.city}</li>
+              <li>{contactInfo.address.line2}, {contactInfo.address.city}</li>
             </ul>
           </div>
 

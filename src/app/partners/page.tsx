@@ -1,7 +1,6 @@
 import { PageHero } from "@/components/sections/page-hero";
 import { SectionHeading } from "@/components/sections/section-heading";
-import { CTASection } from "@/components/sections/cta-section";
-import { getPartnershipOpportunities, getPartnerBenefits } from "@/lib/cms/partners";
+import { getPartnershipOpportunities, getPartnerBenefits, getCollaborationAreas } from "@/lib/cms/partners";
 import { buildMetadata } from "@/lib/metadata";
 import Link from "next/link";
 
@@ -13,7 +12,11 @@ export const metadata = buildMetadata({
 });
 
 export default async function PartnersPage() {
-  const [opportunities, benefits] = await Promise.all([getPartnershipOpportunities(), getPartnerBenefits()]);
+  const [opportunities, benefits, collaborationAreas] = await Promise.all([
+    getPartnershipOpportunities(),
+    getPartnerBenefits(),
+    getCollaborationAreas(),
+  ]);
 
   return (
     <>
@@ -90,7 +93,7 @@ export default async function PartnersPage() {
       <section className="section">
         <div className="container">
           <div className="kf-card p-4 p-lg-5 text-center mx-auto" style={{ maxWidth: "42rem" }}>
-            <i className="bi bi-handshake fs-1 text-olive mb-3" aria-hidden="true" />
+            <i className="bi bi-people-fill fs-1 text-olive mb-3" aria-hidden="true" />
             <h2 className="h4 mb-3">Be among our first published partners</h2>
             <p className="text-secondary mb-0">
               We&apos;re building out a dedicated showcase for our partner organizations. If
@@ -101,7 +104,35 @@ export default async function PartnersPage() {
         </div>
       </section>
 
-      <CTASection title="Let's design a partnership that fits your goals" description="Tell us about your organization's priorities, and we'll come back with a proposal grounded in our real programs and reach." />
+      {/* How organizations can work with us */}
+      <section className="section bg-olive-tint">
+        <div className="container">
+          <SectionHeading
+            eyebrow="Collaborate With Us"
+            title="How can my organization work with Kikwetu Foundation?"
+            description="Partnership takes many forms. Here are the models organizations most often use to work alongside our team, whatever your size, sector, or focus."
+            align="center"
+          />
+          <div className="row g-4">
+            {collaborationAreas.map((area) => (
+              <div className="col-md-6 col-lg-4" key={area.title}>
+                <div className="kf-card p-4 h-100">
+                  <span className="kf-icon-badge mb-3" aria-hidden="true">
+                    <i className={`bi ${area.icon}`} />
+                  </span>
+                  <p className="small text-uppercase fw-bold text-olive mb-1">{area.audience}</p>
+                  <h3 className="h5 mb-2">{area.title}</h3>
+                  <p className="small text-secondary mb-0">{area.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="text-center mt-5 mb-0">
+            Ready to explore one of these together? <Link href="/contact">Contact our team</Link> to start
+            the conversation.
+          </p>
+        </div>
+      </section>
     </>
   );
 }

@@ -99,9 +99,9 @@ src/
 │   │   └── [slug]/page.tsx     # Program detail (generateStaticParams)
 │   ├── impact/page.tsx
 │   ├── partners/page.tsx
+│   ├── team/page.tsx
 │   ├── get-involved/page.tsx
 │   ├── contact/page.tsx
-│   ├── news/page.tsx
 │   ├── privacy-policy/page.tsx
 │   ├── terms-and-conditions/page.tsx
 │   ├── api/
@@ -115,22 +115,23 @@ src/
 ├── components/
 │   ├── layout/                 # Navbar, Footer, appear on every page
 │   ├── sections/                # Larger composed sections (hero, CTA, program card, stat card)
-│   └── ui/                     # Small reusable primitives (forms, breadcrumbs)
+│   └── ui/                     # Small reusable primitives (forms, WhatsApp FAB)
 │
 ├── data/                       # Mock content, the current "source of truth"
 │   ├── organization.ts         # Story, mission, vision, values, impact stats, focus areas
 │   ├── programs.ts             # All 5 programs (K-Hub + 4 past programs)
-│   ├── partners.ts             # Partnership opportunities & benefits
+│   ├── partners.ts             # Partnership opportunities, benefits, collaboration areas
+│   ├── team.ts                 # Team member profiles and photos
 │   ├── contact.ts              # Email / address (only what was supplied)
 │   ├── navigation.ts           # Nav links, footer links, legal links
-│   └── news.ts                 # Empty by design, see Content Sourcing
+│   └── social.ts                # Social media links (see Content Sourcing)
 │
 ├── lib/
 │   ├── cms/                    # Data-access layer, swap mock data for Sanity here only
 │   │   ├── organization.ts
 │   │   ├── programs.ts
 │   │   ├── partners.ts
-│   │   └── news.ts
+│   │   └── team.ts
 │   ├── site-config.ts          # Site name, URL, keywords, theme color
 │   └── metadata.ts             # buildMetadata(), consistent per-page SEO metadata
 │
@@ -150,15 +151,19 @@ migration happens.
 ## Content Sourcing
 
 Per project requirements, the site treats the Company Profile and Brand Identity Guidelines as
-the only sources of truth. Three places where the source material was silent, handled
-honestly rather than invented:
+the only sources of truth. Places where the source material was incomplete, handled honestly
+rather than invented:
 
-- **News (`/news`)**, no articles were supplied. `data/news.ts` exports an empty array and the
-  page renders an honest "newsroom is being set up" state with CMS-ready placeholder slots,
-  instead of fabricated headlines.
-- **Contact details (`/contact`, footer)**, only the email and office address published in the
-  profile are shown. No phone number or social media links are fabricated; `data/contact.ts`
-  documents this explicitly so a future editor knows to add them once available.
+- **Team (`/team`)**, names and roles are only attached to a supplied photo when it matches a
+  named entry in the Company Profile with reasonable confidence (an exact or clearly
+  distinctive match). Where a photo's name didn't clearly correspond to a named board member
+  (common first names alone aren't treated as a confirmed match), that person is introduced by
+  name and photo only, without a fabricated title or biography. See `data/team.ts` for the
+  reasoning behind each match.
+- **Contact details (`/contact`, footer)**, only the email and office address provided by the
+  organization are shown. No phone number is fabricated. Social links are populated only for
+  platforms the organization explicitly confirmed; Facebook has no confirmed URL yet and is
+  shown as a visible but unlinked placeholder rather than a guessed address, see `data/social.ts`.
 - **Partners (`/partners`)**, no named current partner organizations were supplied, so the page
   presents partnership *opportunities* (audiences and engagement models the profile does
   describe: CSR, NGOs, governments, universities, foundations) rather than inventing partner
@@ -259,7 +264,7 @@ interfaces the draft schema in `src/sanity/schema.ts` mirrors field-for-field.
      return client.fetch(`*[_type == "program"] | order(status asc)`);
    }
    ```
-   Repeat for `getCurrentPrograms`, `getProgram`, `getNewsArticles`, etc. No page or component
+   Repeat for `getCurrentPrograms`, `getProgram`, `getTeamMembers`, etc. No page or component
    changes are required, they already call these functions.
 
 8. **Replace mock data entirely.** Once every `lib/cms/*.ts` function reads from Sanity, the
@@ -267,8 +272,9 @@ interfaces the draft schema in `src/sanity/schema.ts` mirrors field-for-field.
 
 ### For content editors (once connected)
 
-- **Create/edit articles**, open Sanity Studio, go to "News Article," click "Create," fill in
-  title, excerpt, date, cover image (with alt text), and body, then **Publish**.
+- **Update the team**, edit the "Team Member" document type, fill in name, role (optional),
+  bio, and photo (with alt text), then **Publish**. Omit the role field entirely for a team
+  member whose title isn't confirmed, rather than guessing one.
 - **Upload images**, drag and drop into any image field; Sanity's CDN handles resizing.
   Always fill in the "Alt text" field for accessibility and SEO.
 - **Manage programs**, edit the "Program" document type. `status` (`current`/`past`) controls
@@ -463,7 +469,9 @@ npm run start   # or hand the .next/ output to your platform's Next.js adapter
 Before going live:
 1. Set `NEXT_PUBLIC_SITE_URL`-equivalent (currently hardcoded in `src/lib/site-config.ts` as
    `siteConfig.url`) to the real production domain.
-2. Replace the Search Console / Bing verification placeholders in `src/app/layout.tsx`.
+2. Set `GOOGLE_SITE_VERIFICATION` / `BING_SITE_VERIFICATION` once Search Console / Bing
+   Webmaster Tools properties exist for the production domain (these meta tags render only
+   when the env vars are set, so nothing placeholder-like ships to production by default).
 3. Set `NEXT_PUBLIC_GA_ID` / `NEXT_PUBLIC_GTM_ID` if analytics are ready.
 4. Point DNS and confirm HTTPS is enforced (required for the HSTS header to be meaningful).
 
