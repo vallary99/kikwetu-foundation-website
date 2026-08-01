@@ -60,9 +60,25 @@ export default async function ProgramDetailPage({ params }: ProgramPageProps) {
         <div className="container">
           <div className="row g-5 align-items-start">
             <div className="col-lg-7">
-              <span className={`kf-badge-status ${program.status === "current" ? "kf-badge-current" : "kf-badge-past"} mb-3 d-inline-block`}>
-                {program.status === "current" ? "Current Program" : "Past Program"}
-              </span>
+              <div className="d-flex align-items-start justify-content-between mb-4 gap-2">
+                {program.logo ? (
+                  <Image
+                    src={program.logo.src}
+                    alt={program.logo.alt}
+                    width={program.logo.width}
+                    height={program.logo.height}
+                    className="kf-program-detail-logo"
+                    priority
+                  />
+                ) : (
+                  <span className="kf-icon-badge" aria-hidden="true">
+                    <i className={`bi ${program.icon}`} />
+                  </span>
+                )}
+                <span className={`kf-badge-status ${program.status === "current" ? "kf-badge-current" : "kf-badge-past"}`}>
+                  {program.status === "current" ? "Current Program" : "Past Program"}
+                </span>
+              </div>
               <h1 className="mb-4">{program.name}</h1>
               {program.description.map((paragraph, index) => (
                 <p className="text-secondary" key={index}>

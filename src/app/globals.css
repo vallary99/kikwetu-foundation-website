@@ -391,6 +391,17 @@ select:focus-visible,
   flex-shrink: 0;
 }
 
+.kf-program-card-logo {
+  height: 3.25rem;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.kf-program-detail-logo {
+  height: 5.5rem;
+  width: auto;
+}
+
 .kf-stat-card {
   background-color: var(--kf-white);
   border-radius: 5px;
@@ -674,5 +685,37 @@ img, iframe, svg {
      readers regardless. */
   .kf-whatsapp-tooltip {
     display: none;
+  }
+}
+
+/* ==========================================================================
+   Our Approach flow
+   ========================================================================== */
+.kf-approach-step {
+  padding: 1.5rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .kf-approach-step {
+    flex: 1 1 0;
+    min-width: 0;
+    padding-inline: 1.25rem;
+  }
+}
+
+.kf-approach-connector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--kf-red);
+  font-size: 1.5rem;
+  line-height: 1;
+  padding-block: 0.25rem;
+}
+
+@media (min-width: 768px) {
+  .kf-approach-connector {
+    padding-top: 2.5rem;
+    flex-shrink: 0;
   }
 }

@@ -27,6 +27,12 @@ export const programs: Program[] = [
       width: 1800,
       height: 1200,
     },
+    logo: {
+      src: "/images/kikwetu-foundation-k-hub-logo.png",
+      alt: "K-Hub Project logo",
+      width: 900,
+      height: 1140,
+    },
   },
   {
     slug: "tambua-mentorship-program",

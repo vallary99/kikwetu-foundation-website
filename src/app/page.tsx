@@ -4,10 +4,10 @@ import { HomeHero } from "@/components/sections/home-hero";
 import { SectionHeading } from "@/components/sections/section-heading";
 import { StatCard } from "@/components/sections/stat-card";
 import { ProgramCard } from "@/components/sections/program-card";
+import { ApproachFlow } from "@/components/sections/approach-flow";
 import { CTASection } from "@/components/sections/cta-section";
 import { getOrganizationProfile, getImpactStats } from "@/lib/cms/organization";
 import { getAllPrograms } from "@/lib/cms/programs";
-import { getTeamMembers } from "@/lib/cms/team";
 import { partnershipOpportunities } from "@/data/partners";
 import { buildMetadata } from "@/lib/metadata";
 
@@ -19,15 +19,13 @@ export const metadata = buildMetadata({
 });
 
 export default async function HomePage() {
-  const [organization, stats, programs, teamMembers] = await Promise.all([
+  const [organization, stats, programs] = await Promise.all([
     getOrganizationProfile(),
     getImpactStats(),
     getAllPrograms(),
-    getTeamMembers(),
   ]);
 
   const featuredPrograms = programs.slice(0, 3);
-  const featuredTeam = teamMembers.slice(0, 4);
 
   return (
     <>
@@ -145,41 +143,15 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Meet Our Team */}
+      {/* Our Approach */}
       <section className="section">
         <div className="container">
           <SectionHeading
-            eyebrow="Our Team"
-            title="The people behind the work"
-            description="A small, hands-on team anchoring a pan-African network of 150+ members across Africa and Europe."
+            eyebrow="Our Approach"
+            title="How we turn opportunity into lasting change"
+            description="A consistent, community-rooted process behind every Kikwetu Foundation program."
           />
-          <div className="row g-4">
-            {featuredTeam.map((member) => (
-              <div className="col-sm-6 col-lg-3" key={member.slug}>
-                <div className="kf-card h-100 overflow-hidden text-center">
-                  <div className="kf-team-photo">
-                    <Image
-                      src={member.image.src}
-                      alt={member.image.alt}
-                      width={member.image.width}
-                      height={member.image.height}
-                      sizes="(min-width: 992px) 25vw, (min-width: 576px) 50vw, 100vw"
-                      className="kf-team-photo-img"
-                    />
-                  </div>
-                  <div className="p-3">
-                    <h3 className="h6 mb-1">{member.name}</h3>
-                    {member.role ? <p className="small text-olive mb-0">{member.role}</p> : null}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="text-center mt-5">
-            <Link href="/team" className="btn btn-brand-outline-dark">
-              Meet the Full Team
-            </Link>
-          </div>
+          <ApproachFlow />
         </div>
       </section>
 

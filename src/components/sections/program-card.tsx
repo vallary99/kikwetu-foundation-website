@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Program } from "@/types/content";
 
@@ -5,9 +6,19 @@ export function ProgramCard({ program }: { program: Program }) {
   return (
     <article className="kf-card p-4 d-flex flex-column">
       <div className="d-flex align-items-start justify-content-between mb-3 gap-2">
-        <span className="kf-icon-badge" aria-hidden="true">
-          <i className={`bi ${program.icon}`} />
-        </span>
+        {program.logo ? (
+          <Image
+            src={program.logo.src}
+            alt={program.logo.alt}
+            width={program.logo.width}
+            height={program.logo.height}
+            className="kf-program-card-logo"
+          />
+        ) : (
+          <span className="kf-icon-badge" aria-hidden="true">
+            <i className={`bi ${program.icon}`} />
+          </span>
+        )}
         <span className={`kf-badge-status ${program.status === "current" ? "kf-badge-current" : "kf-badge-past"}`}>
           {program.status === "current" ? "Current Program" : "Past Program"}
         </span>

@@ -62,7 +62,7 @@ export function NewsletterForm({ variant = "section" }: NewsletterFormProps) {
           id={`newsletter-email-${variant}`}
           type="email"
           required
-          placeholder="you@example.com"
+          placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="form-control"

@@ -32,6 +32,8 @@ export interface Program {
   beneficiaries: string;
   expectedImpact: string;
   image: SiteImage;
+  /** Optional sub-brand logo mark for programs that have their own identity (e.g. K-Hub). */
+  logo?: SiteImage;
 }
 
 export interface Stat {
