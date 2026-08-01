@@ -371,9 +371,51 @@ the `/api/newsletter` route before launch to deter abuse.
 
 ## Contact Form
 
-`src/components/ui/contact-form.tsx` posts to `src/app/api/contact/route.ts`. Same validate →
-stub → integrate pattern as the newsletter form. See the TODO comment in that route for where
-to add a transactional email send (Resend/SendGrid/Postmark) or CRM write (HubSpot/Salesforce).
+`src/components/ui/contact-form.tsx` posts to `src/app/api/contact/route.ts`, which is fully
+wired to send real email via [Resend](https://resend.com). This is live, not a stub.
+
+**How it works:**
+1. Client-side validation runs first (name, email format, message required, plus the Turnstile
+   widget if `NEXT_PUBLIC_TURNSTILE_SITE_KEY` is set).
+2. The route re-validates everything server-side (never trust the client), then verifies the
+   Turnstile token against Cloudflare's `siteverify` endpoint via `src/lib/turnstile.ts`
+   **before doing anything else**. If Turnstile isn't configured or the token is invalid, the
+   request is rejected with `403` and no email is sent, verification fails closed, not open.
+3. On success, `src/lib/email.ts` sends two emails through Resend: a notification to
+   `CONTACT_EMAIL` with every submitted field plus submission time, User-Agent, and the
+   visitor's IP (read from the `x-forwarded-for` header), and a branded confirmation email
+   back to the sender. A failure to send the confirmation doesn't fail the request, the
+   notification email reaching the Foundation is the part that matters.
+4. On the client, a successful response fires the GA4 `contact_form_submit` event (only on
+   success, see `trackContactFormSubmit()` in the form component) and swaps the form for a
+   success message.
+
+**Required environment variables** (see `.env.example`):
+
+| Variable | Purpose |
+| --- | --- |
+| `RESEND_API_KEY` | Resend API key (server-only, never exposed to the client) |
+| `CONTACT_EMAIL` | Inbox that receives the notification email |
+| `RESEND_FROM_EMAIL` | Optional. The verified "from" address; defaults to Resend's shared test address if unset |
+| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Turnstile site key (public, renders the widget) |
+| `TURNSTILE_SECRET_KEY` | Turnstile secret key (server-only, used for verification) |
+
+**Resend domain verification:** emails will send immediately using Resend's shared
+`onboarding@resend.dev` address with no setup, useful for testing, but for production, verify
+your own sending domain in the Resend dashboard (Domains → Add Domain → add the provided DNS
+records), then set `RESEND_FROM_EMAIL` to an address on that domain, e.g.
+`"Kikwetu Foundation <no-reply@kikwetufoundation.org>"`.
+
+**Testing checklist:**
+- [ ] Submit with a field missing, inline validation errors appear, no request is sent
+- [ ] Submit with Turnstile unconfigured (no env vars set), request is rejected with a clear
+      on-screen error, no email sends (this is the fail-closed behavior working correctly)
+- [ ] Submit with valid Turnstile keys configured, the notification email arrives at
+      `CONTACT_EMAIL` with all fields, IP, and User-Agent populated
+- [ ] Confirm the sender receives the confirmation email
+- [ ] Confirm the GA4 Realtime view shows a `contact_form_submit` event only after a
+      **successful** submission, not after a failed one
+- [ ] Submit form on mobile, verify the Turnstile widget renders and completes correctly
 
 ## SEO Guide
 

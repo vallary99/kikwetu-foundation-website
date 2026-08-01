@@ -7,12 +7,12 @@ const isDev = process.env.NODE_ENV !== "production";
 // production builds, so the relaxed script-src and the HMR websocket
 // allowance only apply when NODE_ENV !== "production".
 const scriptSrc = isDev
-  ? "script-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com"
-  : "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com";
+  ? "script-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://challenges.cloudflare.com"
+  : "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://challenges.cloudflare.com";
 
 const connectSrc = isDev
-  ? "connect-src 'self' ws: wss: https://www.google-analytics.com"
-  : "connect-src 'self' https://www.google-analytics.com";
+  ? "connect-src 'self' ws: wss: https://www.google-analytics.com https://challenges.cloudflare.com"
+  : "connect-src 'self' https://www.google-analytics.com https://challenges.cloudflare.com";
 
 const securityHeaders = [
   { key: "X-Frame-Options", value: "SAMEORIGIN" },
@@ -35,7 +35,7 @@ const securityHeaders = [
       "style-src 'self' 'unsafe-inline'",
       "font-src 'self' data:",
       connectSrc,
-      "frame-src 'self' https://www.google.com",
+      "frame-src 'self' https://www.google.com https://challenges.cloudflare.com",
     ].join("; "),
   },
 ];
