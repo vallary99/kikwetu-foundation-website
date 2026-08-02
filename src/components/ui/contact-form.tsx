@@ -54,7 +54,8 @@ export function ContactForm() {
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
+    const form = event.currentTarget; // captured now: currentTarget goes null after the awaited fetch below
+    const formData = new FormData(form);
     const name = String(formData.get("name") || "").trim();
     const email = String(formData.get("email") || "").trim();
     const message = String(formData.get("message") || "").trim();
@@ -94,7 +95,7 @@ export function ContactForm() {
 
       trackContactFormSubmit();
       setStatus("success");
-      event.currentTarget.reset();
+      form.reset();
     } catch {
       setServerError("Something went wrong sending your message. Please try again or email us directly.");
       setStatus("error");
