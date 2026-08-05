@@ -29,7 +29,7 @@ function getResendClient(): Resend {
  * back to Resend's shared test address so local/staging sends still work
  * before a domain is verified.
  */
-const FROM_ADDRESS = process.env.RESEND_FROM_EMAIL ?? "Kikwetu Foundation <onboarding@resend.dev>";
+const FROM_ADDRESS = process.env.RESEND_FROM_EMAIL ?? "Kikwetu Foundation <onboarding@kikwetufoundation.org>";
 
 export interface ContactSubmission {
   name: string;
