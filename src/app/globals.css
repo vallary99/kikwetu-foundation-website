@@ -12,6 +12,7 @@
   --kf-olive-dark: #4e5905;
   --kf-olive-tint: #eef1e0;
   --kf-blue: #4fb0e1;
+  --kf-blue-dark: #2f8dbd;
   --kf-blue-tint: #e8f6fc;
   --kf-red: #d82e4b;
   --kf-white: #ffffff;
@@ -241,6 +242,45 @@ select:focus-visible,
   background-color: var(--kf-red);
   border: 0;
   opacity: 1;
+}
+
+.kf-donate-amount-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+@media (min-width: 480px) {
+  .kf-donate-amount-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+.kf-donate-amount-btn {
+  background-color: var(--kf-olive-tint);
+  border: 2px solid transparent;
+  color: var(--kf-olive-dark);
+  font-weight: 700;
+  padding: 0.65rem 0.5rem;
+}
+
+.kf-donate-amount-btn:hover,
+.kf-donate-amount-btn:focus {
+  border-color: var(--kf-olive);
+  color: var(--kf-olive-dark);
+}
+
+.kf-donate-amount-btn-active {
+  background-color: var(--kf-olive);
+  border-color: var(--kf-olive);
+  color: var(--kf-white);
+}
+
+.kf-donate-amount-btn-active:hover,
+.kf-donate-amount-btn-active:focus {
+  background-color: var(--kf-olive-dark);
+  border-color: var(--kf-olive-dark);
+  color: var(--kf-white);
 }
 
 .kf-navbar {

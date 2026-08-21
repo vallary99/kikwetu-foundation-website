@@ -18,6 +18,7 @@ export const footerLinks: NavLink[] = [
   { label: "Partners", href: "/partners" },
   { label: "Team", href: "/team" },
   { label: "Get Involved", href: "/get-involved" },
+  { label: "Donate", href: "/donate" },
   { label: "Contact", href: "/contact" },
 ];
 

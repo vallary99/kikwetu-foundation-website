@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { DonateButton } from "@/components/ui/donate-button";
 
 interface CTASectionProps {
   title?: string;
@@ -7,7 +8,7 @@ interface CTASectionProps {
 
 export function CTASection({
   title = "Ready to transform African youth together?",
-  description = "Whether you're a corporate partner, government agency, development organization, or an individual ready to volunteer, there's a place for you in Kikwetu Foundation's work.",
+  description = "Whether you're a corporate partner, government agency, development organization, or an individual ready to volunteer or give, there's a place for you in Kikwetu Foundation's work.",
 }: CTASectionProps) {
   return (
     <section className="section bg-olive">
@@ -18,10 +19,11 @@ export function CTASection({
             {description}
           </p>
           <div className="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+            <DonateButton className="btn-brand-outline btn-lg" />
             <Link href="/partners" className="btn btn-brand-outline btn-lg">
               Partner With Us
             </Link>
-            <Link href="/get-involved" className="btn btn-brand-accent btn-lg">
+            <Link href="/get-involved" className="btn btn-brand-outline btn-lg">
               Volunteer With Us
             </Link>
           </div>

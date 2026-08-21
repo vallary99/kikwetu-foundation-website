@@ -5,6 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { primaryNav } from "@/data/navigation";
+import { DonateButton } from "@/components/ui/donate-button";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -64,9 +65,7 @@ export function Navbar() {
               );
             })}
             <li className="nav-item ms-lg-2 mt-2 mt-lg-0">
-              <Link href="/partners" prefetch={false} className="btn btn-brand-primary btn-sm w-100">
-                Partner With Us
-              </Link>
+              <DonateButton className="btn-brand-outline-dark btn-sm w-100" label="Donate" showIcon />
             </li>
           </ul>
         </div>
