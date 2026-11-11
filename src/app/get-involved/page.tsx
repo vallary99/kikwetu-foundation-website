@@ -2,6 +2,9 @@ import { PageHero } from "@/components/sections/page-hero";
 import { SectionHeading } from "@/components/sections/section-heading";
 import { buildMetadata } from "@/lib/metadata";
 import Link from "next/link";
+import { TestimonialsSection } from "@/components/sections/testimonials-section";
+import { getTestimonials } from "@/lib/cms/testimonials";
+import { SafeguardingPolicy } from "@/components/sections/safeguarding-policy";
 
 export const metadata = buildMetadata({
   title: "Get Involved",
@@ -34,7 +37,9 @@ const pathways = [
   },
 ];
 
-export default function GetInvolvedPage() {
+export default async function GetInvolvedPage() {
+  const testimonials = await getTestimonials();
+
   return (
     <>
       <PageHero
@@ -71,6 +76,17 @@ export default function GetInvolvedPage() {
           </div>
         </div>
       </section>
+
+      <TestimonialsSection
+        testimonials={testimonials}
+        title="What our volunteers say"
+        description="Volunteers from Kenya, India, Italy, Romania, the Philippines and the United Kingdom share what they've learned and gained with Kikwetu Foundation."
+      />
+
+      <SafeguardingPolicy
+        title="Volunteering safely with us"
+        description="Every volunteer, trainer and partner agrees to our Safeguarding Policy. It sets out our zero-tolerance stance on harm and the standards that keep learners, young people and our team safe. Please read it before you join us."
+      />
 
       <section className="section bg-olive">
         <div className="container text-center">

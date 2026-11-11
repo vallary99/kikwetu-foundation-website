@@ -6,6 +6,8 @@ import { StatCard } from "@/components/sections/stat-card";
 import { ProgramCard } from "@/components/sections/program-card";
 import { ApproachFlow } from "@/components/sections/approach-flow";
 import { CTASection } from "@/components/sections/cta-section";
+import { TestimonialsSection } from "@/components/sections/testimonials-section";
+import { getTestimonials } from "@/lib/cms/testimonials";
 import { getOrganizationProfile, getImpactStats } from "@/lib/cms/organization";
 import { getAllPrograms } from "@/lib/cms/programs";
 import { partnershipOpportunities } from "@/data/partners";
@@ -19,10 +21,11 @@ export const metadata = buildMetadata({
 });
 
 export default async function HomePage() {
-  const [organization, stats, programs] = await Promise.all([
+  const [organization, stats, programs, testimonials] = await Promise.all([
     getOrganizationProfile(),
     getImpactStats(),
     getAllPrograms(),
+    getTestimonials(),
   ]);
 
   const featuredPrograms = programs.slice(0, 3);
@@ -154,6 +157,9 @@ export default async function HomePage() {
           <ApproachFlow />
         </div>
       </section>
+
+      {/* Testimonials */}
+      <TestimonialsSection testimonials={testimonials} />
 
       <CTASection />
     </>

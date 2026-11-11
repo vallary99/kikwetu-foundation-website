@@ -1,5 +1,6 @@
 import { PageHero } from "@/components/sections/page-hero";
 import { SectionHeading } from "@/components/sections/section-heading";
+import { SafeguardingPolicy } from "@/components/sections/safeguarding-policy";
 import { getPartnershipOpportunities, getPartnerBenefits, getCollaborationAreas } from "@/lib/cms/partners";
 import { buildMetadata } from "@/lib/metadata";
 import Link from "next/link";
@@ -133,6 +134,11 @@ export default async function PartnersPage() {
           </p>
         </div>
       </section>
+
+      <SafeguardingPolicy
+        title="Safeguarding & accountability"
+        description="Partners can review our Safeguarding & Organizational Integrity Policy as part of due diligence. It covers our zero-tolerance stance on exploitation and abuse, data protection, reporting channels and how we investigate concerns."
+      />
     </>
   );
 }

@@ -62,6 +62,17 @@ export interface TeamMember {
   image: SiteImage;
 }
 
+export interface Testimonial {
+  slug: string;
+  name: string;
+  country: string;
+  /** Short pull-quote title shown above the quote. */
+  headline: string;
+  quote: string;
+  /** Optional portrait; cards fall back to an initial when omitted. */
+  image?: SiteImage;
+}
+
 export interface PartnershipOpportunity {
   title: string;
   audience: string;

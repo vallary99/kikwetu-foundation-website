@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import { footerLinks, legalLinks } from "@/data/navigation";
 import { contactInfo } from "@/data/contact";
 import { socialLinks } from "@/data/social";
+import { safeguardingPolicy } from "@/data/documents";
 
 const NewsletterForm = dynamic(
   () => import("@/components/ui/newsletter-form").then((mod) => mod.NewsletterForm),
@@ -106,7 +107,7 @@ export function Footer() {
 
           <p className="mb-0 small order-md-1">&copy; {year} Kikwetu Foundation. All rights reserved.</p>
 
-          <ul className="list-unstyled d-flex gap-4 mb-0 small order-md-2">
+          <ul className="list-unstyled d-flex flex-wrap justify-content-center gap-3 gap-md-4 mb-0 small order-md-2">
             {legalLinks.map((link) => (
               <li key={link.href}>
                 <Link href={link.href} prefetch={false} className="kf-footer-link">
@@ -114,6 +115,17 @@ export function Footer() {
                 </Link>
               </li>
             ))}
+            <li>
+              <a
+                href={safeguardingPolicy.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="kf-footer-link"
+              >
+                Safeguarding Policy
+                <span className="visually-hidden"> (PDF, opens in a new tab)</span>
+              </a>
+            </li>
           </ul>
         </div>
       </div>

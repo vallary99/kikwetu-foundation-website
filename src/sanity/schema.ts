@@ -75,4 +75,18 @@ export const siteSettingsSchema = {
   ],
 };
 
-export const schemaTypes = [programSchema, newsArticleSchema, statSchema, partnerSchema, siteSettingsSchema];
+export const testimonialSchema = {
+  name: "testimonial",
+  title: "Testimonial",
+  type: "document",
+  fields: [
+    { name: "name", title: "Name", type: "string" },
+    { name: "slug", title: "Slug", type: "slug", options: { source: "name" } },
+    { name: "country", title: "Country", type: "string" },
+    { name: "headline", title: "Headline", type: "string" },
+    { name: "quote", title: "Quote", type: "text" },
+    { name: "image", title: "Portrait", type: "image", options: { hotspot: true }, fields: [{ name: "alt", title: "Alt text", type: "string" }] },
+  ],
+};
+
+export const schemaTypes = [programSchema, newsArticleSchema, statSchema, partnerSchema, siteSettingsSchema, testimonialSchema];
