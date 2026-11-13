@@ -29,5 +29,5 @@ export const intake = {
   formUrl: "https://docs.google.com/forms/d/e/1FAIpQLSc1WExZNYLvvARiXAdDXS6iUNCBiu9Jt8eH68twU3PA0mHYJg/viewform",
   headline: "K-Hub Cohort 3 applications open 16 November",
   description:
-    "Free ICT and software-development training for young Kenyans, with a focus on Nairobi's Eastlands. Choose a track in Technology, Software Developing or Programming, and learn hands-on with mentors. Open to Kenyan citizens only.",
+    "Fully funded tech scholarship training for young Kenyans aged 18–29, with a focus on Nairobi. Apply for courses in AI & Machine Learning, Cybersecurity, Software Development and Data Science. Open to Kenyan citizens only.",
 };
