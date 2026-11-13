@@ -1,3 +1,4 @@
+import { IntakeCountdown } from "@/components/sections/intake-countdown";
 import { PageHero } from "@/components/sections/page-hero";
 import { SectionHeading } from "@/components/sections/section-heading";
 import { ProgramCard } from "@/components/sections/program-card";
@@ -29,6 +30,8 @@ export default async function ProgramsPage() {
         }}
         compact
       />
+
+      <IntakeCountdown />
 
       <section className="section">
         <div className="container">

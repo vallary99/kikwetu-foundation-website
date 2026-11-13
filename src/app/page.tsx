@@ -6,6 +6,7 @@ import { StatCard } from "@/components/sections/stat-card";
 import { ProgramCard } from "@/components/sections/program-card";
 import { ApproachFlow } from "@/components/sections/approach-flow";
 import { CTASection } from "@/components/sections/cta-section";
+import { IntakeCountdown } from "@/components/sections/intake-countdown";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
 import { getTestimonials } from "@/lib/cms/testimonials";
 import { getOrganizationProfile, getImpactStats } from "@/lib/cms/organization";
@@ -33,6 +34,9 @@ export default async function HomePage() {
   return (
     <>
       <HomeHero />
+
+      {/* Cohort intake countdown (settings in data/intake.ts) */}
+      <IntakeCountdown />
 
       {/* About Preview */}
       <section className="section">

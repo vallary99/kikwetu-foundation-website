@@ -18,7 +18,7 @@ export const programs: Program[] = [
       "Promote youth entrepreneurship",
       "Foster technological innovation",
     ],
-    beneficiaries: "Young people from Nairobi's Eastlands area, targeting 20,000 trained by 2035.",
+    beneficiaries: "Young Kenyan citizens, with a focus on Nairobi's Eastlands area, targeting 20,000 trained by 2035. The program is open to Kenyan citizens only.",
     expectedImpact:
       "A digitally literate generation of youth equipped with software development and technology skills, bridging the digital divide and opening pathways to employment and entrepreneurship.",
     image: {

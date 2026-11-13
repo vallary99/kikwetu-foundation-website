@@ -1,3 +1,5 @@
+import { IntakeCountdown } from "@/components/sections/intake-countdown";
+import { intake } from "@/data/intake";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -133,6 +135,8 @@ export default async function ProgramDetailPage({ params }: ProgramPageProps) {
           </div>
         </div>
       </section>
+
+      {program.slug === intake.programSlug ? <IntakeCountdown showProgramLink={false} /> : null}
 
       <section className="section-tight bg-olive-tint">
         <div className="container">
